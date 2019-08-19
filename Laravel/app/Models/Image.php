@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Image extends Model
+{
+    //
+}
+
+class Image_projects extends Model
+{
+    //
+}

@@ -1,0 +1,24 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+$primary: #ad3636;
+$danger: #ad3636;
+@import '~bootstrap/scss/bootstrap';
+
+// Pages
+@import 'pages/welcome';
+@import 'pages/project';
+@import 'pages/projects';
+@import 'pages/post';
+@import 'pages/funds';
+@import 'pages/backoffice';
+
+// Components
+@import 'components/nav';
+@import 'components/footer';
+
