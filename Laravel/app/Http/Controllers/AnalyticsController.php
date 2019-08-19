@@ -33,29 +33,28 @@ class AnalyticsController extends Controller
             $project->total = $total;
         }
 
+        $lava = new Lavacharts;
+        $pieChart = $lava->DataTable();
+
+        $pieChart->addNumberColumn($total)
+        ->addNumberColumn($project->credit_goal);
+        
+        $lava->PieChart('Resourced', $pieChart, [
+            'title'  => 'Resourced',
+            'is3D'   => true,
+            'slices' => [
+                ['offset' => 0.2],
+                ['offset' => 0.25],
+                ['offset' => 0.3]
+            ]     
+        ]);      
         
         
         $data = \Lava::DataTable();
         $data->addDateColumn('Day of Month')
                     ->addNumberColumn('Projected')
                     ->addNumberColumn('Official');
-
-        // Random Data For Example
-        for ($a = 1; $a < 30; $a++)
-        {
-            $rowData = [
-            "2014-8-$a", rand(800,1000), rand(800,1000)
-            ];
-
-            $data->addRow($rowData);
-        }
-
-        \Lava::LineChart('Stocks', $data, [
-        'title' => 'Stock Market Trends'
-        ]);
         
-
-
         return view('pages.analytics', ['projects' => $projects]);
     }
 

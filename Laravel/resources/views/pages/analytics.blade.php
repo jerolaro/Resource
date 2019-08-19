@@ -92,6 +92,9 @@
                     <p>Total fundings = {{ $total }}</p>
                     @if($total > 0)
                     <p>Project has reached {{ round(($total / $project->credit_goal) * 100, 1) }}% of the funding goal</p>
+                    <div id="chart-div"></div>
+                        // With Lava class alias
+                        <?= Lava::render('PieChart', 'Resourced', 'chart-div') ?>
                     @else
                     <p>Projects hasn't received any funding yet</p>
                     @endif
